@@ -1,0 +1,23 @@
+{
+  "name": "mill-code-editor",
+  "description": "",
+  "main": "",
+  "authors": [
+    "mill1983 <mill1983@126.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/millteacher/mill-code-editor",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "^2.3.2",
+    "bootstrap": "^3.3.7",
+    "require-css": "^0.1.8",
+    "angular": "^1.6.2"
+  }
+}
