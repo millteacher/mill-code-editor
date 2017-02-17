@@ -4,6 +4,8 @@ require.config({
 
 	paths:{
 		"bootstrap":"/bootstrap/dist/js/bootstrap",
+		"ace":"/ace/build/src/ace",
+		"ext-language":"/ace/build/src/ext-language_tools",
 		"angular":"/angular/angular",
 		"angular-route":"/angular-route/angular-route",
 		"angular-tree":"/angular-tree-control/angular-tree-control",
@@ -38,6 +40,15 @@ require.config({
 			"css!/angular-tree-control/css/tree-control.css",
 			"css!/angular-tree-control/css/tree-control-attribute.css",
 			]
+		},"ace":{
+			exports:"ace",
+			
+		},"ext-language":{
+			exports:"ext-language",
+			deps:[
+				"ace"
+			]
+			
 		},
 	},
 	map:{//1,引入require-css
@@ -59,7 +70,12 @@ require([
 	"app",
 	"nav",
 	"navCtrl",
+	"ace",
+	"ext-language",
+	"ace_config",
 
 ],function  (boot,angular) {
 	angular.bootstrap(document,['indexApp']);
+	
+	
 });
