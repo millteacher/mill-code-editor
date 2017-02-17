@@ -1,3 +1,3 @@
 define(['angular'],function  (angular) {
-	return angular.module('indexApp',[]);
+	return angular.module('indexApp',["ngRoute","treeControl"]);
 });

@@ -6,6 +6,7 @@ function walk (path,file,noeach) {
 		file.name="root";
 		file.path=path;
 		file.child=[];
+		file.isFile=false;
 	}
 	var files=fs.readdirSync(path);
 	files.forEach(function  (item,index,arr) {
@@ -19,6 +20,7 @@ function walk (path,file,noeach) {
 		if(file.child)file.child.push(tmpfile);
 
 		var stats= fs.statSync(tmpPath);
+		tmpfile.isFile=stats.isFile();
 		for(var i in noeach){
 			if(item==noeach[i]){
 				stats=null;

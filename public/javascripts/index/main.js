@@ -5,6 +5,8 @@ require.config({
 	paths:{
 		"bootstrap":"/bootstrap/dist/js/bootstrap",
 		"angular":"/angular/angular",
+		"angular-route":"/angular-route/angular-route",
+		"angular-tree":"/angular-tree-control/angular-tree-control",
 		"jquery":"/jquery/dist/jquery",
 		"nav":"/javascripts/common/nav",
 		"navCtrl":"/javascripts/common/navCtrl",
@@ -23,6 +25,20 @@ require.config({
 			"bootstrap",
 			]
 		},
+		"angular-route":{
+			exports:"angular-route",
+			deps:[
+			"angular",
+			]
+		},
+		"angular-tree":{
+			exports:"angular-tree",
+			deps:[
+			"angular",
+			"css!/angular-tree-control/css/tree-control.css",
+			"css!/angular-tree-control/css/tree-control-attribute.css",
+			]
+		},
 	},
 	map:{//1,引入require-css
 		'*':{
@@ -34,6 +50,12 @@ require.config({
 require([
 	"bootstrap",
 	"angular",
+	"angular-route",
+	"angular-tree",
+	"route",
+	"IndexCtrl",
+	"EditorCtrl",
+	"treeCtrl",
 	"app",
 	"nav",
 	"navCtrl",

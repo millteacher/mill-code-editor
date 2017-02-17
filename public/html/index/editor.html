@@ -1,0 +1,20 @@
+<div class="row clearfix">
+	<div class="col-md-12 column">
+		<div class="row clearfix">
+			<div class="col-md-3 column" ng-controller="treeCtrl">
+				<h2>{{name}}</h2>
+				<treecontrol class="tree-classic"
+				   tree-model="dataForTheTree"
+				   options="treeOptions"
+				   on-selection="showSelected(node)"
+				   selected-node="node1">
+
+				    {{node.name}} 
+
+				</treecontrol>
+			</div>
+			<div class="col-md-9 column">
+			</div>
+		</div>
+	</div>
+</div>
