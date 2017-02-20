@@ -8,6 +8,7 @@ require.config({
 		"ext-language":"/ace/build/src/ext-language_tools",
 		"angular":"/angular/angular",
 		"angular-route":"/angular-route/angular-route",
+		"context":"/context/index",
 		"angular-tree":"/angular-tree-control/angular-tree-control",
 		"jquery":"/jquery/dist/jquery",
 		"nav":"/javascripts/common/nav",
@@ -25,6 +26,12 @@ require.config({
 			exports:"angular",
 			deps:[
 			"bootstrap",
+			]
+		},
+		"context":{
+			exports:"context",
+			deps:[
+			"css!/context.standalone/index.css",
 			]
 		},
 		"angular-route":{
@@ -61,9 +68,11 @@ require.config({
 require([
 	"bootstrap",
 	"angular",
+	"context",
 	"angular-route",
 	"angular-tree",
 	"route",
+	"rightClickDire",
 	"IndexCtrl",
 	"EditorCtrl",
 	"treeCtrl",

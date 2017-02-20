@@ -3,7 +3,7 @@ define(['app'],function  (app) {
 		scope.navdata={
 			brand:"mill",
 			left:[
-				{url:"http://www.baidu.com",val:"百度"},
+				{url:"/#!/editor",val:"编辑"},
 				{
 					val:"尚学堂",
 					dropdown:true,//{}==false
