@@ -13,13 +13,14 @@ req:request,请求
 res:response,响应
 */
 router.get('/filetree',function  (req, res, next) {
-	var fileTreeObj=ft.walk('E:/editor/mill-code-editor',['node_modules','bower_components']);
+	// windows/ \  都可以使用，如果\
+	var fileTreeObj=ft.walk('E:\\editor\\parsePowerdesigner',['node_modules','bower_components']);
 	res.json(fileTreeObj);
 });
 
 router.post('/readFile',function  (req, res, next) {
 	if(req.body.path){
-		var content=muitls.fs.read(req.body.path);
+		var content=fs.readFileSync(req.body.path);
 		res.send(content);
 	}
 })

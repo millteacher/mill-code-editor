@@ -3,10 +3,12 @@ define(['app',"angular-tree"],function  (app) {
 	['$scope',"$http"
 	,function  (scope,http) {
 		scope.name="temp";
+		//读取所有的文件树的数据
 		http.get('/editor/filetree')
 		.then(function  (data) {
 			scope.dataForTheTree =data.data;
 		});
+		//树的初始化配置
 		scope.treeOptions = {
 		    nodeChildren: "child",
 		    dirSelectable: true,

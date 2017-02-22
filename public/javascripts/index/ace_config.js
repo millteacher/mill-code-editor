@@ -4,7 +4,7 @@ define(['app', 'ace', 'context', 'ext-language'], function(app) {
 	var topId = "";
 	var crrentFile = "";
 	//初始化ace
-	function aceInit(id) {
+	function aceInit(id,cb) {
 		topId = id;
 		editor = ace.edit(id);
 		editor.setOptions({
@@ -15,6 +15,7 @@ define(['app', 'ace', 'context', 'ext-language'], function(app) {
 		document.getElementById(id).style.fontSize = '14px';
 		editor.setTheme("ace/theme/twilight");
 		editor.getSession().setMode("ace/mode/javascript");
+		// 注册键盘事件,激活保存文件
 		editor.commands.addCommand({
 			name: 'myCommand',
 			bindKey: {
@@ -22,7 +23,8 @@ define(['app', 'ace', 'context', 'ext-language'], function(app) {
 				mac: 'Command-S'
 			},
 			exec: function(editor) { //... 
-				alert("您是否要保存文件");
+				if(confirm("您是否要保存文件"))
+				cb();
 			},
 			readOnly: true // false if this command should not apply in readOnly mode 
 		});

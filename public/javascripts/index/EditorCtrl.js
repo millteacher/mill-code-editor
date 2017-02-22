@@ -3,11 +3,12 @@ define(['app', 'ace_config'], function(app, AceConfig) {
 
 
 	app.controller('EditorCtrl', ['$scope', '$http', function(scope, http) {
-
-		var editor = AceConfig.aceConfig("editor");
-		var editorNode = null;
+		//编辑框的实例对象
+		var editor = AceConfig.aceConfig("editor",saveCurrentFile);
+		var editorNode = null;//当前编辑的节点(文件)
 
 		scope.title = "这是我的Scope";
+		// ace编辑框右键点击事件
 		scope.rightBtnClick = function(e) {
 			// alert(1111);
 		}
@@ -17,7 +18,7 @@ define(['app', 'ace_config'], function(app, AceConfig) {
 				editorNode = node;
 				AceConfig.setFile(node); //在aceconfig中,缓存当前编辑的文件对象信息
 				if (node.isFile) {
-					http.post("/editor/readFile", {
+					http.post("/editor/readFile?time="+(new Date()).getTime(), {
 							path: node.path
 						})
 						.then(function(data) {
@@ -26,22 +27,24 @@ define(['app', 'ace_config'], function(app, AceConfig) {
 						});
 				}
 			}
-			//ajax保存文件
-		scope.saveFile = function() {
+
+		function saveCurrentFile() {
 			if (!editorNode) {
 				alert("没有选中的文件");
 				return;
 			}
-			var obj = {
+			var obj = {//保存文件需要用到的对象
 				path: editorNode.path,
 				content: editor.getValue()
 			}
-
+			//异步调用保存文件的接口
 			http.post("/editor/saveFile", obj)
 				.then(function(data) {
 					alert(data.data);
 				});
 		}
+			//ajax保存文件
+		scope.saveFile = saveCurrentFile;
 
 	}]);
 
