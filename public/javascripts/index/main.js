@@ -73,6 +73,7 @@ require([
 	"angular-tree",
 	"route",
 	"rightClickDire",
+	"McodeService",
 	"IndexCtrl",
 	"EditorCtrl",
 	"treeCtrl",

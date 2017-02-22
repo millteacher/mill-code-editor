@@ -2,7 +2,7 @@ define(['app', 'ace_config'], function(app, AceConfig) {
 
 
 
-	app.controller('EditorCtrl', ['$scope', '$http', function(scope, http) {
+	app.controller('EditorCtrl', ['$scope', '$http','McodeService' ,function(scope, http,McodeService) {
 		//编辑框的实例对象
 		var editor = AceConfig.aceConfig("editor",saveCurrentFile);
 		var editorNode = null;//当前编辑的节点(文件)
@@ -12,7 +12,9 @@ define(['app', 'ace_config'], function(app, AceConfig) {
 		scope.rightBtnClick = function(e) {
 			// alert(1111);
 		}
-
+		scope.testDb=function  () {
+			McodeService.updateData();
+		}
 		//ajax读取文件
 		scope.itemClick = function(node) {
 				editorNode = node;
