@@ -50,6 +50,10 @@ function deleteRow (obj) {
 	var sql='delete from code_manager where id=?';
 	return runSql (sql,[obj.id]);
 }
+function deleteModel (obj) {
+	var sql='delete from code_manager where id=? or parent_id=?';
+	return runSql (sql,[obj.id,obj.id]);
+}
 
 function getRow (obj) {//查询一行
 	var sql='select * from code_manager where id=?';
@@ -80,7 +84,8 @@ module.exports={
 	getRow:getRow,
 	deleteRow:deleteRow,
 	insert:insert,
-	update:update
+	update:update,
+	deleteModel:deleteModel
 }
 
 /*var promiseResult=getAll({

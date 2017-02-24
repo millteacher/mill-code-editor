@@ -1,16 +1,16 @@
 define(['app'],function  (app) {
 	app.config(['$routeProvider',
 		function  (route) {
-		route.when("/mill",{
-			controller:'IndexCtrl',
-			templateUrl:'/html/index/index.html'
+		route.when("/mcode",{
+			controller:'McodeCtrl',
+			templateUrl:'/html/index/mcode.html'
 		})
 		.when("/editor",{
 			controller:'EditorCtrl',
 			templateUrl:'/html/index/editor.html'
 		})
 		.otherwise({
-			redirectTo:"/mill"
+			redirectTo:"/mcode"
 		});
 	}]);
 })

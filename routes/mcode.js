@@ -44,9 +44,8 @@ router.post('/update',function  (req, res, next) {
 });
 router.get('/delete_row/:id',function  (req, res, next) {
 	console.log(req.params.id);
-	var promiseResult=codeManagerService.deleteRow({id:req.params.id});
+	var promiseResult=codeManagerService.deleteModel({id:req.params.id});
 	promiseResult.then(function  () {
-
 		res.send("delete success");
 	},function  (err) {
 		res.send(err);

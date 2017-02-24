@@ -13,6 +13,9 @@ require.config({
 		"jquery":"/jquery/dist/jquery",
 		"nav":"/javascripts/common/nav",
 		"navCtrl":"/javascripts/common/navCtrl",
+		"arr2tree":"/javascripts/common/arr2tree",
+		"mcodeTreeCtrl":"/javascripts/mcode/mcodeTreeCtrl",
+		"treeContext":"/javascripts/mcode/treeContext",
 	},
 	shim:{
 		"bootstrap":{
@@ -73,8 +76,11 @@ require([
 	"angular-tree",
 	"route",
 	"rightClickDire",
+	"treeContext",
 	"McodeService",
-	"IndexCtrl",
+	"arr2tree",
+	"McodeCtrl",
+	"mcodeTreeCtrl",
 	"EditorCtrl",
 	"treeCtrl",
 	"app",
