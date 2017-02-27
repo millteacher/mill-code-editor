@@ -67,7 +67,7 @@ require.config({
 		}
 	}
 });
-
+//./const.js
 require([
 	"bootstrap",
 	"angular",
@@ -76,6 +76,7 @@ require([
 	"angular-tree",
 	"route",
 	"rightClickDire",
+	"const",
 	"treeContext",
 	"McodeService",
 	"arr2tree",
@@ -91,6 +92,8 @@ require([
 	"ace_config",
 
 ],function  (boot,angular) {
+	//bootstrap表示手动加载angular，app
+	//相当于ng-app
 	angular.bootstrap(document,['indexApp']);
 	
 	

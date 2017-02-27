@@ -1,3 +1,15 @@
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="alert alert-dismissable alert-info">
+				 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				<h4>
+					当前编辑的是{{editorTitile}}
+				</h4> 
+			</div>
+		</div>
+	</div>
+</div>
 <div class="row clearfix">
 	<div class="col-md-12 column">
 		<div class="row clearfix">
@@ -16,25 +28,25 @@
 			<div class="col-md-9 column">
 
 				<div class="btn-group">
-					<button class="btn btn-default" ng-click="saveFile()" type="button">
+					<button class="btn btn-default" ng-click="editTpl()" type="button">
 						<em class="glyphicon glyphicon-align-left">
 						</em>
-						保存
+						编辑模板
 					</button>
-					<button ng-click="testDb()" class="btn btn-default" type="button">
+					<button ng-click="editConf()" class="btn btn-default" type="button" >
 						<em class="glyphicon glyphicon-align-center">
 						</em>
-						中
+						编辑配置
 					</button>
-					<button class="btn btn-default" type="button">
+					<button class="btn btn-default" ng-click="createCode()" type="button">
 						<em class="glyphicon glyphicon-align-right">
 						</em>
-						右
+						生成代码
 					</button>
-					<button class="btn btn-default" type="button">
+					<button ng-click="saveCode()" class="btn btn-default" type="button">
 						<em class="glyphicon glyphicon-align-justify">
 						</em>
-						全
+						保存编辑
 					</button>
 				</div><!-- btn-group end-->
 

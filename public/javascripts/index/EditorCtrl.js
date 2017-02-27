@@ -2,11 +2,22 @@ define(['app', 'ace_config'], function(app, AceConfig) {
 
 
 
-	app.controller('EditorCtrl', ['$scope', '$http','McodeService' ,function(scope, http,McodeService) {
+	app.controller('EditorCtrl', ['$scope', '$http','McodeService' 
+		,'Mconst',function(scope, http,McodeService,Mconst) {
 		//编辑框的实例对象
 		var editor = AceConfig.aceConfig("editor",saveCurrentFile);
 		var editorNode = null;//当前编辑的节点(文件)
-
+		//如果缓存中有文件信息则进行读入
+		(function  (argument) {
+			editorNode={};
+			var path= sessionStorage.getItem(Mconst.CURRENT_EDITOR_FILE_PATH);
+			var content=sessionStorage.getItem(Mconst.CURRENT_EDITOR_FILE_CONTENT);
+			if(content){
+				editor.setValue(content);
+				editorNode.path=path;
+				editorNode.content=content;
+			}
+		})();
 		scope.title = "这是我的Scope";
 		// ace编辑框右键点击事件
 		scope.rightBtnClick = function(e) {
@@ -29,7 +40,23 @@ define(['app', 'ace_config'], function(app, AceConfig) {
 						});
 				}
 			}
+		//插入缓存中生成的代码
+		scope.insertGeneratCode=function  () {
+			var code=sessionStorage.getItem("renderCode");
+			editor.insert(code);
+		}
+		
+		//跳转到生成代码页面
+		scope.goGeneratCode=function  () {
+			//缓存当前被编辑的文件
+			if(editorNode){
 
+			sessionStorage.setItem(Mconst.CURRENT_EDITOR_FILE_PATH,editorNode.path);
+			sessionStorage.setItem(Mconst.CURRENT_EDITOR_FILE_CONTENT,editor.getValue());
+
+			}
+			window.location.href="/#!/mcode";
+		}
 		function saveCurrentFile() {
 			if (!editorNode) {
 				alert("没有选中的文件");

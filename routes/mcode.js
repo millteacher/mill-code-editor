@@ -1,6 +1,6 @@
 var express = require('express');
 var codeManagerService=require('../service/CodeManagerService.js');
-
+var mutil=require("mill-n-utils");
 var router = express.Router();
 
 /* GET home page. */
@@ -52,4 +52,36 @@ router.get('/delete_row/:id',function  (req, res, next) {
 	});
 });
 
+router.post('/render_code',function  (req, res, next) {
+	let tpl=req.body.data.template;
+	let conf=req.body.data.content;
+	
+
+	if(tpl&&conf){
+		try{
+			conf=JSON.parse(conf);
+			var result=mutil.ejs.render(tpl,conf);
+			res.json({
+				state:1,
+				message:"代码生成成功",
+				data:result
+			});
+		}catch(err){
+			res.json({
+				state:-1,
+				message:"模板解析错误或代码生成错误,请检查配置",
+				data:{}
+			});
+		}
+		
+		
+	}else{
+		res.json({
+				state:0,
+				message:"代码生成失败,请检查你的参数",
+				data:{}
+			});
+	}
+
+});
 module.exports = router;
