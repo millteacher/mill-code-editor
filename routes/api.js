@@ -5,7 +5,7 @@ var router = express.Router();
 CommonService.setDb('business');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.send('<h1>success</h1>' );
+  res.render("api");
 });
 
 router.get('/get_all/:tableName',function  (req, res, next) {
