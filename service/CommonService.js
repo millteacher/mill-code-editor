@@ -24,7 +24,10 @@ function runSql (sql,parmas) {
 		});
 	});
 }
-
+function doSql (arr,tableName,key) {
+	var sql=sqls[url][tableName][key];
+	return runSql (sql,arr);
+}
 function update (arr,tableName) {
 	var sql=sqls[url][tableName]['update'];
 	return runSql (sql,arr);
@@ -39,7 +42,10 @@ function deleteAll (tableName) {
 	return runSql (sql,[]);
 }
 
-function getRow (arr,tableName) {//查询一行
+function getRow (arr,tableName,key) {//查询一行
+	if(key){
+		var sql=sqls[url][tableName][key];
+	}else
 	var sql=sqls[url][tableName]['getRow'];
 	return new Promise(function  (resolve,reject) {
 		db.get(sql,arr,function  (err,data) {
@@ -51,7 +57,10 @@ function getRow (arr,tableName) {//查询一行
 	});
 }
 
-function getAll (arr,tableName) {//查所有数据一般需要做分页
+function getAll (arr,tableName,key) {//查所有数据一般需要做分页
+	if(key){
+		var sql=sqls[url][tableName][key];
+	}else
 	var sql=sqls[url][tableName]['getAll'];
 	return new Promise(function  (resolve,reject) {
 		db.all(sql,arr,function  (err,data) {
@@ -70,6 +79,7 @@ module.exports={
 	insert:insert,
 	update:update,
 	setDb:setDb,
+	doSql:doSql,
 	deleteAll:deleteAll
 }
 
