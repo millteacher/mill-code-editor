@@ -14,7 +14,7 @@ res:response,响应
 */
 router.get('/filetree',function  (req, res, next) {
 	// windows/ \  都可以使用，如果\
-	var fileTreeObj=ft.walk('E:\\editor\\parsePowerdesigner',['node_modules','bower_components']);
+	var fileTreeObj=ft.walk('D:\\workspace\\twdrp-root-pom',['.svn','.settings']);
 	res.json(fileTreeObj);
 });
 
