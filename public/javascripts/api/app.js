@@ -1,3 +1,3 @@
-define(['angular'],function  () {
-	return angular.module('apiApp',[]);
+define(['angular','angular-route'],function  () {
+	return angular.module('apiApp',['ngRoute']);
 });

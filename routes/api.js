@@ -9,7 +9,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/get_all/:tableName',function  (req, res, next) {
-	var promiseResult=CommonService.getAll([],req.params.tableName);
+	var arg=req.query.arg?req.query.arg:[];
+	console.log(req.query);
+	if(req.query.key){
+		var promiseResult=CommonService.getAll(arg,req.params.tableName,req.query.key);
+	}else
+	var promiseResult=CommonService.getAll(arg,req.params.tableName);
 	promiseResult.then(function  (data) {
 		res.json(data);
 	},function  (err) {

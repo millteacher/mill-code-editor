@@ -1,0 +1,23 @@
+<div ng-include="'/html/api/pills.html'"></div>
+<div style="min-height:500px">
+<table class="table table-hover" >
+  <thead>
+  	<tr>
+  		<th>列名</th>
+  		<th>数据类型</th>
+      <th>是否主键</th>
+  		<th>验证规则</th>
+  		<th>列注释</th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<tr ng-repeat="x in data">
+      <td>{{x.column_name}}</td>
+      <td>{{x.data_type}}</td>
+      <td>{{x.column_key=='PRI'}}</td>
+      <td>{{x.validate}}</td>
+  		<td style="width:30%">{{x.column_comment}}</td>
+  	</tr>
+  </tbody>
+</table>
+</div>

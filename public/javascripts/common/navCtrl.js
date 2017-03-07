@@ -13,7 +13,7 @@ define(['app'],function  (app) {
 						{url:"http://www.qq.com",val:"大数据学院"}
 					]
 				},
-				{url:"http://www.baidu.com",val:"新浪"}
+				{url:"/api",val:"设计"}
 			],
 			form:{
 				btnVal:"搜索",

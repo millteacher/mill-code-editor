@@ -6,6 +6,12 @@ module.exports={
 			getRow:"select * from mill_model where model_id=?",
 			getAll:"select * from mill_model",
 			deleteRow:"delete from mill_model where model_id=?",
+		},
+		mill_table:{
+			getAll:"select * from mill_table",
+		},
+		mill_field:{
+			getAllForTable:"SELECT column_name,data_type,column_key,column_comment,(SELECT count(*) from mill_field_validate where field_id=field_id) as validate FROM mill_field where table_name=?",
 		}
 	}
 }

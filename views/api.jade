@@ -8,4 +8,18 @@ block content
     }
   script(type="text/javascript",data-main="/javascripts/api/main",src="/requirejs/require.js")
   h1= title
-  div(ng-view)
+  .col-md-12.column
+  .row.clearfix
+    .col-md-10.column
+      div(ng-view) 				
+    .col-md-2.column(ng-controller="indexCtrl")
+      ul.nav.nav-pills.nav-stacked
+        li.active(role="presentation")
+          a(href="#") 字段设置
+        |   
+        li(role="presentation")
+          a(href="#") Profile
+        |   
+        li(role="presentation")
+          a(href="#") Messages
+  

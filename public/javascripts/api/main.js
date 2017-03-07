@@ -14,6 +14,7 @@ require.config({
 		"nav":"/javascripts/common/nav",
 		"navCtrl":"/javascripts/common/navCtrl",
 		"arr2tree":"/javascripts/common/arr2tree",
+		"limit":"/javascripts/common/limit",
 		"mcodeTreeCtrl":"/javascripts/mcode/mcodeTreeCtrl",
 		"treeContext":"/javascripts/mcode/treeContext",
 	},
@@ -75,7 +76,12 @@ require([
 	"angular-route",
 	"angular-tree",
 	"app",
+	"route",
+	"limit",
 	"nav",
+	"indexCtrl",
+	"FieldCtrl",
+	"TableCtrl",
 	"navCtrl",
 	
 

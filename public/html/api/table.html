@@ -1,0 +1,37 @@
+<div ng-include="'/html/api/pills.html'"></div>
+<div style="min-height:500px">
+<table class="table table-hover" >
+  <thead>
+  	<tr>
+  		<th>表头</th>
+  		<th>创建时间</th>
+  		<th>修改时间</th>
+  		<th>表注释</th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<tr ng-repeat="x in data|limit:page">
+      <td><a ng-href="/api#!/field/{{x.table_name}}">{{x.table_name}}</a></td>
+      <td>{{x.create_time|date:'yyyy-MM-dd HH:mm:ss'}}</td>
+      <td>{{x.update_time|date:'yyyy-MM-dd HH:mm:ss'}}</td>
+  		<td style="width:40%">{{x.table_comment}}</td>
+  	</tr>
+  </tbody>
+</table>
+</div>
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a href="javascript:void(0);" ng-click="toPage(-1);" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li ng-repeat="x in pages"><a href="javascript:void(0);" ng-click="doPage(x);">{{x}}</a></li>
+
+    <li>
+      <a href="javascript:void(0);" ng-click="toPage(1);" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
