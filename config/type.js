@@ -1,0 +1,14 @@
+module.exports={
+	expression_type:{
+		1:"regexp",
+		2:"sql",
+		3:"function",
+		4:"annotation"
+	},
+	return_type:{
+		1:"ok",
+		2:"info",
+		3:"warning",
+		4:"error"
+	}
+}
