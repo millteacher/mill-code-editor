@@ -71,15 +71,7 @@ let insertTableResult=insertMultisim("SELECT table_name,table_comment,create_tim
 
 
 insertTableResult.then(function () {
-	insertMultisim(getFieldSql,config,insertFieldNameArr,insertSql,function (item,fieldName) {
-		if(fieldName=="column_key"&&item['column_key']=='PRI'){
-			updateTableKey(item['table_name'],item['column_name']);
-			// console.warn(2222);
-			return item[fieldName];
-		}else{
-			return item[fieldName];
-		}
-	});
+	insertMultisim(getFieldSql,config,insertFieldNameArr,insertSql);
 });
 
 
