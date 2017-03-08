@@ -10,5 +10,21 @@ module.exports={
 		2:"info",
 		3:"warning",
 		4:"error"
+	},
+	function_type:{
+		1:"controller",
+		2:"service",
+		3:"mapper",
+		4:"model",
+		5:"util"
+	},
+	mapper_type:{
+		1:"getRow",
+		2:"getAll",
+		3:"insertRow",
+		4:"insertArr",
+		5:"update",
+		6:"join",
+		7:"delete"
 	}
 }
