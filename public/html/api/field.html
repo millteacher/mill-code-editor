@@ -12,7 +12,7 @@
   </thead>
   <tbody>
   	<tr ng-repeat="x in data">
-      <td>{{x.column_name}}</td>
+      <td><a ng-href="/api#!/fieldEditor/{{x.field_id}}">{{x.column_name}}<a></td>
       <td>{{x.data_type}}</td>
       <td>{{x.column_key=='PRI'}}</td>
       <td>{{x.validate}}</td>

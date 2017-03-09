@@ -1,0 +1,65 @@
+<div class="col-md-12 column">
+<h3>字段验证规则</h3>
+</div>
+<div ng-include="'/html/api/pills.html'"></div>
+<div class="col-md-12 column">
+	<div class="row clearfix">
+		<div class="col-md-2 column">
+			<ul class="list-group">
+			  <li class="list-group-item">插入</li>
+			  <li class="list-group-item">更新</li>
+			</ul>
+		</div>
+		<div class="col-md-6 column">
+			<form role="form">
+				<div class="form-group">
+					 <label for="exampleInputEmail1">Email address</label><input type="email" class="form-control" id="exampleInputEmail1" />
+				</div>
+				<div class="form-group">
+					 <label for="exampleInputPassword1">Password</label><input type="password" class="form-control" id="exampleInputPassword1" />
+				</div>
+				<div class="form-group">
+					 <label for="exampleInputFile">File input</label><input type="file" id="exampleInputFile" />
+					<p class="help-block">
+						Example block-level help text here.
+					</p>
+				</div>
+				<div class="checkbox">
+					 <label><input type="checkbox" />Check me out</label>
+				</div> <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>
+		<div class="col-md-4 column">
+			<form class="form-inline">
+
+				<div class="radio">
+				  <label>
+				    <input type="radio" name="optionsRadios" ng-value="1" ng-model="validateType">整数
+				  </label>
+				</div>
+				<div class="radio">
+				  <label>
+				    <input type="radio" name="optionsRadios" ng-value="2" ng-model="validateType">字符串
+				  </label>
+				</div>
+				<div class="radio">
+				  <label>
+				    <input type="radio" name="optionsRadios" ng-value="3" ng-model="validateType">浮点数
+				  </label>
+				</div>
+				<div class="radio">
+				  <label>
+				    <input type="radio" name="optionsRadios" ng-value="4" ng-model="validateType">日期
+				  </label>
+				</div>
+			    <div class="input-group">
+			      <input type="text" class="form-control" ng-model="validateName" placeholder="Search for...">
+			      <span class="input-group-btn">
+			        <button class="btn btn-default" type="button">Go!</button>
+			         <button class="btn btn-default" ng-click="addValidateName()" type="button">+</button>
+			      </span>
+			    </div><!-- /input-group -->
+			</form>
+		</div>
+	</div>
+</div>

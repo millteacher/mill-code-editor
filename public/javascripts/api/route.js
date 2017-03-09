@@ -9,6 +9,10 @@ define(['app'],function  (app) {
 			controller:'FieldCtrl',
 			templateUrl:'/html/api/field.html'
 		})
+		.when("/fieldEditor/:field_id",{
+			controller:'FieldEditorCtrl',
+			templateUrl:'/html/api/fieldEditor.html'
+		})
 		.otherwise({
 			redirectTo:"/table/1"
 		});

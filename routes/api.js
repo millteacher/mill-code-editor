@@ -57,5 +57,13 @@ router.get('/delete_row/:tableName/:id',function  (req, res, next) {
 	});
 });
 
+router.post('/doSql',function  (req, res, next) {
+	var promiseResult=CommonService.doSql(req.body.data,req.body.table,req.body.key);
+	promiseResult.then(function  () {
+		res.send("doSql success");
+	},function  (err) {
+		res.send(err);
+	});
+});
 
 module.exports = router;

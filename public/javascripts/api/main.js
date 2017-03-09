@@ -81,6 +81,7 @@ require([
 	"nav",
 	"indexCtrl",
 	"FieldCtrl",
+	"FieldEditorCtrl",
 	"TableCtrl",
 	"navCtrl",
 	
