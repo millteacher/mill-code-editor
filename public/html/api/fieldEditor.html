@@ -1,33 +1,41 @@
 <div class="col-md-12 column">
-<h3>字段验证规则</h3>
+<h3>字段验证规则{{currentEditTitle}}</h3>
 </div>
 <div ng-include="'/html/api/pills.html'"></div>
 <div class="col-md-12 column">
 	<div class="row clearfix">
 		<div class="col-md-2 column">
 			<ul class="list-group">
-			  <li class="list-group-item">插入</li>
-			  <li class="list-group-item">更新</li>
+			  <li ng-repeat="x in fieldValidateList" class="list-group-item">
+			  	<a ng-click="setCurrentFieldValidate(x)" href="javascript:void(0);">{{x.validate_name}}</a>
+			  </li>
+			  
 			</ul>
 		</div>
 		<div class="col-md-6 column">
-			<form role="form">
-				<div class="form-group">
-					 <label for="exampleInputEmail1">Email address</label><input type="email" class="form-control" id="exampleInputEmail1" />
-				</div>
-				<div class="form-group">
-					 <label for="exampleInputPassword1">Password</label><input type="password" class="form-control" id="exampleInputPassword1" />
-				</div>
-				<div class="form-group">
-					 <label for="exampleInputFile">File input</label><input type="file" id="exampleInputFile" />
-					<p class="help-block">
-						Example block-level help text here.
-					</p>
-				</div>
-				<div class="checkbox">
-					 <label><input type="checkbox" />Check me out</label>
-				</div> <button type="submit" class="btn btn-default">Submit</button>
-			</form>
+			<div class="btn-group">
+				 <button ng-click="editTemplate()" class="btn btn-default" type="button">
+					<em class="glyphicon glyphicon-align-left">
+					</em>
+					编辑模板
+				</button>
+				<button ng-click="editTemplateConfig()" class="btn btn-default" type="button">
+					<em class="glyphicon glyphicon-align-center">
+					</em>
+					模板配置
+				</button>
+				<button ng-click="editConfig()" class="btn btn-default" type="button">
+					<em class="glyphicon glyphicon-align-right">
+					</em>
+					编辑配置
+				</button>
+				<button ng-click="save()" class="btn btn-default" type="button">
+					<em class="glyphicon glyphicon-align-justify">
+					</em>
+					保存
+				</button>
+			</div><!-- btn-group -->
+			<div id="editor" ></div>
 		</div>
 		<div class="col-md-4 column">
 			<form class="form-inline">
@@ -59,6 +67,13 @@
 			         <button class="btn btn-default" ng-click="addValidateName()" type="button">+</button>
 			      </span>
 			    </div><!-- /input-group -->
+			    <ul class="list-group">
+				  <li class="list-group-item" ng-repeat="x in validateInfos">
+				  	<a ng-click="setItem(x)" href="javascript:void(0);">
+				  	{{x.validate_name}}</a>
+				  </li>
+
+				</ul><!-- list-group -->
 			</form>
 		</div>
 	</div>

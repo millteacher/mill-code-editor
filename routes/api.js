@@ -62,7 +62,7 @@ router.post('/doSql',function  (req, res, next) {
 	promiseResult.then(function  () {
 		res.send("doSql success");
 	},function  (err) {
-		res.send(err);
+		console.log(err);
 	});
 });
 

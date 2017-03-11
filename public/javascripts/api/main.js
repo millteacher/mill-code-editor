@@ -75,6 +75,9 @@ require([
 	"context",
 	"angular-route",
 	"angular-tree",
+	"ace",
+	"ext-language",
+	"aceConf",
 	"app",
 	"route",
 	"limit",
@@ -84,6 +87,7 @@ require([
 	"FieldEditorCtrl",
 	"TableCtrl",
 	"navCtrl",
+	
 	
 
 ],function  (boot,angular) {

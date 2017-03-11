@@ -19,7 +19,7 @@ select table_name,column_name,data_type,column_default,is_nullable,numeric_preci
 `;
 
 
-let insertFieldNameArr=["column_name","data_type","table_name","column_default","is_nullable","numeric_precision","numeric_scale","column_key","column_comment"];
+let insertFieldNameArr=["field_id","column_name","data_type","table_name","column_default","is_nullable","numeric_precision","numeric_scale","column_key","column_comment"];
 
 mysql.simpleConfig(config);
 /**
@@ -62,6 +62,9 @@ let insertTableResult=insertMultisim("SELECT table_name,table_comment,create_tim
 	,config,["table_name","table_comment","create_time","update_time"],
 	"insert into mill_table (table_name,table_comment,create_time,update_time) values "
 	,function (item,fieldName) {
+		if(fieldName=="field_id"){
+			return item['table_name']+'&'+item['column_name'];
+		}
 		if(fieldName=="create_time"||fieldName=="update_time"){
 			return item[fieldName]?item[fieldName].getTime():null;
 		}else{
